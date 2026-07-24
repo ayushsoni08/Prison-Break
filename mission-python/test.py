@@ -1,1 +1,1 @@
-print('test python program')
+print('test python program for setup')
