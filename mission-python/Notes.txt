@@ -42,4 +42,19 @@ double quotes ("), or triple quotes (''' or """). Strings can contain letters, n
 Python does not have a separate character type — a single character is simply a string of length 1.
 Strings are immutable, meaning once created, their contents cannot be changed.
 
-# String Methods: 
+# String Methods: Functions that are built into a specific data type (like strings) and are called using dot
+notation (.) {e.g -> variable.method()}. They allow the manipulation of the data.
+Example: strip() -> Removes leading and trailing spaces from a string
+         title() -> Capitalizes the first character of each word of a string
+         split(separator) -> Splits the string according to the passed separator
+         capitalize() -> Capitalizes the first character of a string
+         There are a lot of methods, refer the official python documentation to practice.
+
+# Chaining Methods: Multiple methods can be called sequentially on the same line, where the output of one method
+becomes the input for the next (eg -> variable.input().strip().title()).
+
+# f-Strings (Formatted String Literals): A modern and efficient way to embed expressions inside string Literals
+by prefixing the string with f or F.
+Syntax: f"Hello, {variable_name}"
+Benefit: Allows for readable and easy concatenation of strings and variables, replacing older methods like + for
+string concatenation or passing multiple argments to print()
