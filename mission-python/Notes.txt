@@ -1,0 +1,45 @@
+# Notes
+# Functions: Functions are reusable blocks of code that perform a specific task. Think of them
+as verbs of actions in your program.
+Example: print() displays output in console. input() gets input from the user.
+
+# Arguments: Values passed into a function to influence its behaviour
+Example: The string inside the print function above; print("Hello name")
+
+# Side effects: Actions a function performs that are observable, such as displaying text on the screen
+or playing a sound.
+
+# Variables: Variables are named storage locations in a programs's memory that hold data. The act as
+containers for values.
+
+# Assignment Operator (=): In python (and many other programming languages), a single equal sign means
+'assing the value from the right to the variable on the left' not equality.
+
+# Return Values: Functions can return a value which is the result of their operation. This returned
+value then can be stored in a variable.
+Example: name = input("What is your name? ") stored the user's typed input into the name variable.
+
+# Bugs and Debugging: A bug is an error or mistake in a program that causes it to behave unexpectedly
+or crash. Debugging is the process of finding and fixing these bugs.
+
+# Syntax Errors: Mistakes in the structure or grammar of the code, which prevent the program from
+running.
+Example: Missing a closing parenthesis. These are often identified by the interpreter.
+
+# Interpreter: A program (like the python program itself) that reads and executes the code written in a
+high-level language (like python) by translating it into machine-understandable instructions.
+
+# Command-Line Interface(CLI): A text-based interface for interpreting with the computer. Programmers
+often use it to run scripts and execute commands because it offers more control and efficieny compared
+to graphical interfaces.
+
+# Integrated Developments Environments (IDEs): Software applications that provide comprehensive facilities
+to computer programmers for software development.
+Example: VS Code, Intelli J, etc.
+
+# Strings: In Python, a string is a sequence of characters enclosed in single quotes ('), 
+double quotes ("), or triple quotes (''' or """). Strings can contain letters, numbers, symbols, and spaces.
+Python does not have a separate character type — a single character is simply a string of length 1.
+Strings are immutable, meaning once created, their contents cannot be changed.
+
+# String Methods: 
