@@ -58,3 +58,14 @@ by prefixing the string with f or F.
 Syntax: f"Hello, {variable_name}"
 Benefit: Allows for readable and easy concatenation of strings and variables, replacing older methods like + for
 string concatenation or passing multiple argments to print()
+
+# Data Types: Classification of data that tell the computer how to interpret and use values.
+str(String): Sequence of characters
+int(Integer): Integer is a whole number - positive, negative or zero - without any fractional or decimal part
+float(Floating-point): Numbers with decimal points
+
+# Type Conversion (Casting): Explicitly changing a value from one data type to another.
+
+# Scope: The region of a program where a variable is accessible.
+Local Scope: Variables defined inside a function are "local" to that function and can only be accessed within it.
+Global Scope: Variables defined outside any function are "global" and can be accessed from anywhere in the program.
