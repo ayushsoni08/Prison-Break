@@ -69,3 +69,35 @@ float(Floating-point): Numbers with decimal points
 # Scope: The region of a program where a variable is accessible.
 Local Scope: Variables defined inside a function are "local" to that function and can only be accessed within it.
 Global Scope: Variables defined outside any function are "global" and can be accessed from anywhere in the program.
+
+# Conditionals (if-elif-else, match-case): Conditional statements allows your program to make decisions and
+execute different blocks of code based on whether a certain condition is true or false
+if statement: Executes a block of code if its condition is true.
+elif statement: Short for "else if", it allows you to check for an additional condition if the preceding if or\
+elif conditions were false.
+
+# Comparison Operators: These symbols are used to compare two values and return a boolean(true/false) result.
+Operators: > (greater than), >= (greater than or equal to), < (less than), <= (lesser than or equal to)
+           == (equal to), != (not equal to)
+
+# Logical Operators (OR, AND): These operators combine multiple boolean expressions to form a more complex condition.
+OR operator: returns true if at least one of the conditions it connects are true.
+AND operator: returns true only is all the conditions it connects are true.
+
+# Indentation and Colons: Python uses indentation (typically 4 spaces or one tab) and colons to define code 
+blocks, unlike many other languages that use curly braces. This is a strict requirement for Python code to 
+execute correctly.
+
+# Modulo Operator (%): The modulo operator returns the remainder of a division. It's particularly useful for 
+determining if a number is even or odd, or if it's a multiple of another number.
+
+# Boolean Expressions and Boolean Type: A Boolean expression is any expression that evaluates to either True 
+or False. Python has a built-in Boolean data type (bool) that can only hold these two values 
+(True or False, first character capitalized)
+
+# Pythonic Expressions (Chaining Comparison Operators): Python allows for a more concise way to express range 
+checks by chaining comparison operators, making the code more readable and similar to mathematical notation. 
+This is not common in other languages.
+
+# Functions Returning Boolean Values: You can define your own functions that return True or False based on 
+some internal logic. This encapsulates complex checks and makes your main code cleaner.
