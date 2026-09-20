@@ -10,13 +10,14 @@ def main():
     for _ in range(n):
         student_records.append(add_student())
 
-    #infinite loop only if user selects option 1
+    #User menu
     while True:
         print("Enter the operation you want to perform from below options")
         print("1: Add a new student")
         print("2: View Students")
         print("3: Find a student (enter student's name)")
         print("4: Show class Statistics (enter the class number)")
+        print("5: Exit")
         try:
             option = int(input("Enter opeation to perform: "))
             match option:
@@ -25,21 +26,31 @@ def main():
 
                 case 2:
                     print_students(student_records)
-                    break
 
                 case 3:
-                    student_name = input("Enter student's name to search: ")
+                    student_name = input("Enter student's name to search: ").lower()
                     find_student(student_records, student_name)
-                    break
 
                 case 4:
-                    class_num = int(input("Enter class number: "))
-                    show_class_statistics(student_records, class_num)
-                    break
+                    while True:
+                        try:
+                            class_num = int(input("Enter student's class: "))
 
+                            if class_num < 1 or class_num > 12:
+                                print("Class does't exist")
+                                continue
+                            else:
+                                show_class_statistics(student_records, class_num)
+                                break
+                        except ValueError:
+                            print("Invalid input for class")
+
+                case 5:
+                    break
+        
                 case _:
                     print("Invalid option.")
-                    break
+        
         except ValueError:
             print("Invalid option selected")
 
@@ -52,26 +63,38 @@ def add_student():
     for key in student_info:
         match key:
             case "name":
-                name = input("Enter student's name: ")
+                name = input("Enter student's name: ").lower()
                 student[key] = name
 
             case "class":
-                try:
-                    class_num = int(input("Enter student's class: "))
-                    student[key] = class_num
-                except ValueError:
-                    print("Invalid input for class")
+                while True:
+                    try:
+                        class_num = int(input("Enter student's class: "))
+                        if class_num < 1 or class_num > 12:
+                            print("Invalid class entered: The class should be entered in the range of 1-12")
+                            continue
+                        else:
+                            student[key] = class_num
+                            break
+                    except ValueError:
+                        print("Invalid input for class")
 
             case "marks":
                 #take 5 subject's marks for each student, assuming user knows the name and number of subjects
                 marks = []
                 for _ in range(5):
-                    try: 
-                        mark = int(input("Enter subjects's marks: "))
-                        marks.append(mark)
+                    while True:
+                        try: 
+                            mark = int(input("Enter subjects's marks: "))
+                            if mark < 0 or mark > 100:
+                                print("Marks should be entered in the range of 0-100")
+                                continue
+                            else:
+                                marks.append(mark)
+                                break
 
-                    except ValueError:
-                        print("Invalid input for marks")
+                        except ValueError:
+                            print("Invalid input for marks")
 
                 student[key] = marks
 
@@ -98,20 +121,20 @@ def print_students(students):
             grade = 'D'
         else:
             grade = 'F'
-
-        print(f"Name: {student["name"]}, Class: {student["class"]}, Marks: {student["marks"]}, Highest marks: {highest_marks}, Lowest marks: {lowest_marks}, Percentage: {percentage}, Grade: {grade}")
+        name = student["name"].title()
+        print(f"Name: {name}, Class: {student["class"]}, Marks: {student["marks"]}, Highest marks: {highest_marks}, Lowest marks: {lowest_marks}, Percentage: {percentage}, Grade: {grade}")
 
 
 def find_student(students, name):
-    isFound = False
+    is_found = False
 
     for student in students:
         if student["name"] == name:
-            isFound = True
+            is_found = True
             print(student)
             break
 
-    if isFound == False:
+    if is_found == False:
         print("Student not found.")
         return
 
@@ -122,7 +145,7 @@ def show_class_statistics(students, student_class):
         class_statistics = {}
         if student["class"] == student_class:
             class_statistics["name"] = student["name"]
-            avg = float(statistics.mean(student["marks"]))
+            avg = statistics.mean(student["marks"])
             class_statistics["average"] = avg
 
             student_list.append(class_statistics)
@@ -133,21 +156,23 @@ def show_class_statistics(students, student_class):
     student_name_max = ""
     student_name_min = ""
 
-    for student in student_list:
-        if student["average"] > max_avg:
-            student_name_max = student["name"]
-            max_avg = student["average"]
+    if num_of_students > 0:
+        for student in student_list:
+            if student["average"] > max_avg:
+                student_name_max = student["name"]
+                max_avg = student["average"]
 
-    zero_dic = student_list[0]
-    min_avg = zero_dic["average"]
-    for student in student_list:
-        if student["average"] < min_avg:
-            student_name_min = student["name"]
-            min_avg = student["average"]
+        zero_dic = student_list[0]
+        min_avg = zero_dic["average"]
+        for student in student_list:
+            if student["average"] < min_avg:
+                student_name_min = student["name"]
+                min_avg = student["average"]
 
-    print(f"Number of students in class {student_class}: {num_of_students}")
-    print(f"Student with highest average of marks: {student_name_max}, Average= {max_avg}")
-    print(f"Student with lowest average of marks: {student_name_min}, Average= {min_avg}")
-
+        print(f"Number of students in class {student_class}: {num_of_students}")
+        print(f"Student with highest average of marks: {student_name_max}, Average= {max_avg}")
+        print(f"Student with lowest average of marks: {student_name_min}, Average= {min_avg}")
+    else:
+        print(f"There is no student in class: {student_class}")
 
 main()
